@@ -7,8 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-
+    <script src="jquery-3.5.1.js"></script>
     <link rel="stylesheet" href="style.css">
+
+
+  
 </head>
 
 <body>
@@ -49,9 +52,9 @@
             <form action="">
                <h2>Farönk térfogat számító</h2>
                 <select name="" id="muvelet">
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
+                    <option value="Huber">Huber</option>
+                    <option value="Schribner">Schribner</option>
+                    <option value="Doyle">Doyle</option>
                 </select>
                 <div class="div1 div"> 
                     <h2>Térfogat (kéregmentes)</h2><br>
@@ -60,20 +63,40 @@
                 </div>
                 <div class="div2 div">
                      <h2> Középső átmérő</h2>    
-                     <input type="number" id="szam" placeholder="cm">
+                     <input type="number" min="0" id="atmero" placeholder="cm">
                 </div>
                 <div class="div3 div">
                     <h2>Hosszuság</h2> 
                      <h2>Mennyiség (db)</h2> 
-                    <input type="number" id="hosz" placeholder="m">
-                    <input type="number" id="menyiseg" placeholder="1">
+                    <input type="number" min="0" id="hosz" placeholder="m">
+                    <input type="number"  min="0" id="menyiseg" placeholder="1">
                 </div>
                 <button type="button" id="szamol">Számol</button>
                
             </form>  
         </div>
-        
       </section>
+
+      <script>
+        const szamol=document.getElementById("szamol");
+        const muvelet=document.getElementById("muvelet");
+        const terfogat=document.getElementById("terfogat");
+        const atmero=document.getElementById("atmero");
+        const hosz=document.getElementById("hosz");
+        const menyiseg=document.getElementById("menyiseg");
+
+
+
+
+        function faTerfogat(){
+           let elso= ((Math.pow((((atmero.value/100)+hosz.value)*1.5),2))*Math.PI)/4 ;
+           let masodik=((Math.pow(atmero.value/100,2))*Math.PI)/4; 
+           let osszeg=Math.round(((elso+masodik)/2)*hosz.value);
+           terfogat.innerHTML=osszeg;
+         };
+         szamol.addEventListener("click", faTerfogat);
+
+    </script>
 </body>
 
 </html>
