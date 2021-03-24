@@ -28,13 +28,15 @@ body{
 }
 #kobozo form h2{
     color: rgb(138, 136, 136);
-    font-size: 1.5rem;   
+    font-size: 1.5rem;  
+    padding-top: 0.5rem;
 }
 #kobozo form input,select{
     border-radius: 10px;
     outline: 10px;
     border:2px solid rgb(97, 94, 94);
     height: 5vh;
+    font-size: 1.5rem;
 }
 #kobozo .div1{
     text-align: center;
@@ -46,22 +48,25 @@ body{
     height: 14vh;
     position: relative;
 }
-#kobozo .div1  b{
+#kobozo .div1 .div1inner{
     position: absolute;
-    bottom: 0.7rem;
+    bottom: 10%;
     left: 35%;
-    width: 50%;
-    max-width: 20%;
+    min-width: 40%;
+    box-sizing: content-box !important;
+    display: flex;
+    justify-content: space-between;
+}
+#kobozo .div1  b{
+    flex-basis: 50%;
     color: white;
     font-size: 3rem;
     background: transparent;
     border: 0;
+    box-sizing: content-box i !important;
 }
 #kobozo .div1 span{
-    position: absolute;
-    bottom: 0.7rem;
-    right: 10%;
-    width: 50%;
+    flex-basis:  50%;
     color: rgb(156, 151, 151);
     font-size: 3rem;
 }
@@ -75,8 +80,9 @@ body{
     flex-wrap: wrap;
     flex-direction: column;
 }
-#kobozo .div2 h2 input{
+#kobozo .div2 h2, input{
     width: 100%;
+    font-size:1.5rem ;
 }
 #kobozo .div3{
     display: flex;
@@ -123,7 +129,20 @@ body{
 }
 @media (max-width:800px)
 {
+    html{
+        font-size: 75%;
+    }
     #kobozo form{
         width: 80%;
     }
+    #kobozo form h2{  
+        padding-top: 1rem;
+    }
+}
+@media (max-width:500px)
+{
+    #kobozo{
+        width: 100%;
+    }
+
 }

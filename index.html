@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Farönk Térfogat</title>
+    <link rel="shortcut icon" href="faronk.png" type="image/png">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="jquery-3.5.1.js"></script>
     <link rel="stylesheet" href="style.css">
@@ -58,12 +59,14 @@
                 </select>
                 <div class="div1 div"> 
                     <h2>Térfogat (kéregmentes)</h2><br>
+                  <div class="div1inner">
                     <b id="terfogat">---</b>
                     <span>m<sup>3</sup></span> 
+                  </div>
                 </div>
                 <div class="div2 div">
-                     <h2> Középső átmérő</h2>    
-                     <input type="number" min="0" id="atmero" placeholder="cm">
+                    <h2> Középső átmérő</h2>
+                    <input type="number" min="0" id="atmero" placeholder="cm">            
                 </div>
                 <div class="div3 div">
                     <h2>Hosszuság</h2> 
@@ -78,6 +81,7 @@
       </section>
 
       <script>
+      
         const szamol=document.getElementById("szamol");
         const muvelet=document.getElementById("muvelet");
         const terfogat=document.getElementById("terfogat");
@@ -87,12 +91,28 @@
 
 
 
-
+ 
         function faTerfogat(){
-           let elso= ((Math.pow((((atmero.value/100)+hosz.value)*1.5),2))*Math.PI)/4 ;
-           let masodik=((Math.pow(atmero.value/100,2))*Math.PI)/4; 
-           let osszeg=Math.round(((elso+masodik)/2)*hosz.value);
-           terfogat.innerHTML=osszeg;
+          if(muvelet.value!="Huber"){
+             alert("A kiválasztott számolási módszer jelenleg fejlesztés alatt áll kérlek válasz másikat!")
+          }
+          if(atmero.value!=null && hosz.value!=0 && (muvelet.value="Huber")){
+            let elso= ((Math.pow((((atmero.value/100)+hosz.value)*1.5),2))*Math.PI)/4 ;
+            let masodik=((Math.pow(atmero.value/100,2))*Math.PI)/4; 
+            let osszeg=Math.round(((elso+masodik)/2)*hosz.value);
+            terfogat.innerHTML=osszeg;
+          }
+          if(hosz.value==0 && atmero.value==0 ){
+             alert("Kérlek adj meg adatokat!");
+          }
+          else if(atmero.value==0){
+            alert("Kérlek add meg az átmérőt!");
+           }
+          else  if(hosz.value==0){
+            alert("Kérlek add meg a fa hosszát!");
+           }
+           
+          
          };
          szamol.addEventListener("click", faTerfogat);
 
