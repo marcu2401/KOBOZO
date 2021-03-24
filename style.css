@@ -51,7 +51,7 @@ body{
 #kobozo .div1 .div1inner{
     position: absolute;
     bottom: 10%;
-    left: 35%;
+    left: 30%;
     min-width: 40%;
     box-sizing: content-box !important;
     display: flex;
