@@ -35,12 +35,14 @@ body{
     border-radius: 10px;
     outline: 10px;
     border:2px solid rgb(97, 94, 94);
-    height: 5vh;
+    min-height: 5vh;
+
     font-size: 1.5rem;
 }
 #kobozo .div1{
     text-align: center;
     align-items: center;
+    min-height: 120px;
     width: 100%;
     border-radius: 20px;
     background: linear-gradient(#5c5a5a, #000000);
@@ -118,7 +120,7 @@ body{
     background: transparent;
     color: #ca0a0a;
     font-weight: 500;
-    height: 5vh;
+    min-height: 5vh;
     font-size: 2rem;
 }
 @media (max-width:1300px)
